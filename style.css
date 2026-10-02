@@ -68,17 +68,24 @@ a:focus-visible { outline: 0.15em solid currentColor; outline-offset: 0.2em; bor
 	font-size: clamp(2.5rem, 13vw, 7.5rem);
 	line-height: 1.05;
 	letter-spacing: -0.01em;
+	/* By eye: the h stands off its side of the edge and the A's foot reaches
+	   toward it, so the pair sits a touch right to even the two gaps. */
+	position: relative;
+	left: 0.04em;
 }
 
 .small {
 	font-size: clamp(0.82rem, 3.6vw, 1.15rem);
-	padding-top: 1.5em;
+	/* A margin, not padding: each cell is set upright about the centre of
+	   its own box, and padding above the words put that centre above them,
+	   which slid the words sideways off the edge. */
+	margin-top: 1.5em;
 }
 .night.small { color: var(--mutedOnNight); }
 .day.small { color: var(--mutedOnDay); }
 .night.small a { color: var(--teal); }
 .day.small a { color: var(--tealOnDay); }
-.small + .small + .small, .small + .small + .small + .small { padding-top: 0.5em; }
+.small + .small + .small, .small + .small + .small + .small { margin-top: 0.5em; }
 
 .visuallyHidden {
 	position: absolute; width: 1px; height: 1px; overflow: hidden;
