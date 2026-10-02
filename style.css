@@ -32,14 +32,21 @@ a:focus-visible { outline: 0.15em solid currentColor; outline-offset: 0.2em; bor
 
 /* ---------- Landing ---------- */
 
-.landing {
-	min-height: 100%;
+.landing { background: var(--night); }
+
+/* The split and the words are drawn in the same box, so the edge always
+   passes through the centre the words are laid out around. A background
+   fixed to the screen does not: on a phone the screen's centre moves when
+   the address bar shows or hides, and the edge slid off the words. */
+.stage {
+	min-height: 100vh;
+	min-height: 100dvh;
 	display: grid;
 	place-items: center;
 	overflow: hidden;
 	color: var(--day);
-	/* The boundary runs through the centre of the page, leaning like a slash. */
-	background: linear-gradient(calc(90deg + var(--lean)), var(--night) 50%, var(--day) 50%) fixed;
+	/* The boundary runs through the centre of the box, leaning like a slash. */
+	background: linear-gradient(calc(90deg + var(--lean)), var(--night) 50%, var(--day) 50%);
 }
 
 /* Skewing the rows and unskewing each cell keeps the letters upright while
